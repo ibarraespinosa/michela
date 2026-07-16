@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Michela Sanguedolce, PhD — Engineering at the Biointerface</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f8f9f9;
+  --white: #ffffff;
+  --black: #1a1a1a;
+  --primary: #2d6a4f;
+  --primary-light: #40916c;
+  --primary-pale: #d8f3dc;
+  --accent: #b7b7a4;
+  --text: #2d2d2d;
+  --text-muted: #6b6b6b;
+  --border: #e0e0dc;
+  --code-bg: #f0f4f2;
+  --glow: rgba(45,106,79,0.1);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--text); line-height:1.8; font-weight:300; }
+h1,h2,h3 { font-family:'DM Serif Display',serif; font-weight:400; color:var(--black); }
+h1 { font-size:3.8rem; letter-spacing:-0.02em; }
+h2 { font-size:2rem; margin-bottom:2rem; }
+h2 span { display:inline-block; border-bottom:3px solid var(--primary-light); padding-bottom:0.3rem; }
+
+nav { position:fixed; top:0; width:100%; background:rgba(255,255,255,0.88); backdrop-filter:blur(16px); border-bottom:1px solid var(--border); z-index:100; padding:0 2rem; }
+nav .inner { max-width:1100px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; height:60px; }
+nav .logo { font-family:'DM Serif Display',serif; font-size:1.3rem; color:var(--black); font-weight:400; }
+nav .links { display:flex; gap:2rem; list-style:none; }
+nav .links a { color:var(--text-muted); text-decoration:none; font-size:0.85rem; font-weight:400; letter-spacing:0.04em; text-transform:uppercase; transition:color 0.2s; }
+nav .links a:hover, nav .links a.active { color:var(--primary); }
+
+.hero { min-height:100vh; display:grid; grid-template-columns:1fr 1fr; }
+.hero-text { display:flex; flex-direction:column; justify-content:center; padding:4rem 3rem 4rem 5rem; }
+.hero-image { background:url('assets/hero.jpg') center/cover; position:relative; }
+.hero-image::after { content:''; position:absolute; inset:0; background:linear-gradient(135deg, rgba(248,249,249,0.3), transparent 60%); }
+.hero .tag { font-size:0.75rem; text-transform:uppercase; letter-spacing:0.12em; color:var(--primary); margin-bottom:1rem; font-weight:500; }
+.hero h1 { margin-bottom:0.8rem; animation:fadeIn 1s ease; }
+.hero .subtitle { font-size:1.1rem; color:var(--text-muted); font-weight:300; margin-bottom:0.5rem; animation:fadeIn 1.2s ease; }
+.hero .heritage { font-size:0.95rem; color:var(--accent); font-style:italic; animation:fadeIn 1.4s ease; }
+.hero .stats { display:flex; gap:2.5rem; margin-top:2.5rem; }
+.hero .stat-num { font-family:'DM Serif Display',serif; font-size:2.2rem; color:var(--primary); }
+.hero .stat-label { font-size:0.8rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-muted); }
+@keyframes fadeIn { from { opacity:0; transform:translateY(15px); } to { opacity:1; transform:translateY(0); } }
+
+.pattern { height:60px; background:repeating-linear-gradient(45deg, var(--primary-pale), var(--primary-pale) 2px, transparent 2px, transparent 8px); opacity:0.5; }
+
+section { max-width:860px; margin:0 auto; padding:5rem 2rem; }
+section.dark { background:var(--black); max-width:none; color:rgba(255,255,255,0.85); }
+section.dark h2 { color:var(--white); }
+section.dark h2 span { border-bottom-color:var(--primary-light); }
+section.dark .sec-inner { max-width:860px; margin:0 auto; }
+section.dark a { color:var(--primary-light); }
+
+.card { background:var(--white); border:1px solid var(--border); border-radius:2px; padding:2.5rem; margin-bottom:1.2rem; }
+.card:hover { box-shadow:0 4px 24px var(--glow); }
+
+.content a { color:var(--primary); text-decoration:none; border-bottom:1px solid var(--primary-pale); }
+.content a:hover { border-bottom-color:var(--primary); }
+.content ul { list-style:none; padding-left:0; }
+.content ul li::before { content:'▹ '; color:var(--primary-light); }
+.content li { margin:0.5rem 0; }
+.content blockquote { border-left:3px solid var(--primary-light); padding:0.8rem 1.5rem; margin:1.5rem 0; background:var(--code-bg); border-radius:0 4px 4px 0; font-style:italic; }
+.content hr { border:none; height:1px; background:var(--border); margin:2.5rem 0; }
+.content em { color:var(--primary); }
+.content strong { font-weight:500; }
+
+/* CAROUSEL */
+.carousel-wrap { max-width:860px; margin:2rem auto 0; }
+.carousel { position:relative; width:100%; overflow:hidden; border-radius:2px; border:1px solid var(--border); }
+.carousel-track { display:flex; transition:transform 0.5s ease; }
+.carousel-slide { min-width:100%; display:flex; justify-content:center; align-items:center; background:var(--code-bg); height:440px; }
+.carousel-slide img { width:100%; height:100%; object-fit:cover; }
+.carousel-slide .placeholder { text-align:center; color:var(--text-muted); padding:3rem; }
+.carousel-btn { position:absolute; top:50%; transform:translateY(-50%); background:var(--white); border:1px solid var(--border); color:var(--black); width:40px; height:40px; cursor:pointer; font-size:1.2rem; border-radius:50%; z-index:5; transition:all 0.2s; }
+.carousel-btn:hover { background:var(--primary); color:var(--white); border-color:var(--primary); }
+.carousel-btn.prev { left:10px; }
+.carousel-btn.next { right:10px; }
+.carousel-dots { display:flex; justify-content:center; gap:0.5rem; margin-top:1rem; }
+.carousel-dots button { width:8px; height:8px; border-radius:50%; border:1px solid var(--primary); background:transparent; cursor:pointer; transition:background 0.2s; }
+.carousel-dots button.active { background:var(--primary); }
+
+/* CONTACT FORM */
+.contact-form { max-width:600px; margin:2rem auto 0; }
+.contact-form input, .contact-form textarea { width:100%; padding:0.8rem 1rem; margin-bottom:1rem; background:var(--white); border:1px solid var(--border); border-radius:2px; color:var(--text); font-family:'DM Sans',sans-serif; font-size:0.9rem; transition:border-color 0.2s; }
+.contact-form input:focus, .contact-form textarea:focus { outline:none; border-color:var(--primary); }
+.contact-form textarea { min-height:120px; resize:vertical; }
+.contact-form button { background:var(--primary); color:var(--white); border:none; padding:0.8rem 2rem; border-radius:2px; font-size:0.95rem; font-weight:500; cursor:pointer; font-family:'DM Sans',sans-serif; text-transform:uppercase; letter-spacing:0.04em; transition:all 0.2s; }
+.contact-form button:hover { background:var(--black); }
+
+footer { text-align:center; padding:3rem 2rem; background:var(--black); color:rgba(255,255,255,0.5); font-size:0.82rem; }
+footer span { color:var(--primary-light); }
+
+@media(max-width:768px) {
+  .hero { grid-template-columns:1fr; }
+  .hero-text { padding:3rem 1.5rem; order:2; }
+  .hero-image { min-height:40vh; order:1; }
+  .hero h1 { font-size:2.6rem; }
+  section { padding:3rem 1.2rem; }
+  .carousel-slide { height:250px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="inner">
+    <span class="logo">MS</span>
+    <ul class="links">
+      <li><a href="#about" class="nav-link active" onclick="selectNav(this)">About</a></li>
+      <li><a href="#research" class="nav-link" onclick="selectNav(this)">Research</a></li>
+      <li><a href="#portfolio" class="nav-link" onclick="selectNav(this)">Portfolio</a></li>
+      <li><a href="#publications" class="nav-link" onclick="selectNav(this)">Publications</a></li>
+      <li><a href="#contact" class="nav-link" onclick="selectNav(this)">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="hero" id="top">
+  <div class="hero-text">
+    <div class="tag">Biomedical Engineer · PhD</div>
+    <h1>Michela Sanguedolce</h1>
+    <p class="subtitle">Engineering at the biointerface — from microneedle arrays to soft robotic catheters</p>
+    <p class="heritage">Calabria → Maryland</p>
+    <div class="stats">
+      <div><div class="stat-num">14+</div><div class="stat-label">Journal Papers</div></div>
+      <div><div class="stat-num">25+</div><div class="stat-label">Conference Papers</div></div>
+      <div><div class="stat-num">3</div><div class="stat-label">Awards</div></div>
+    </div>
+  </div>
+  <div class="hero-image"></div>
+</div>
+
+<div class="pattern"></div>
+
+<section id="about"><div class="sec-inner content" data-src="content/about.md"></div></section>
+<section id="research" class="dark"><div class="sec-inner content" data-src="content/research.md"></div></section>
+
+<section id="portfolio">
+  <div class="sec-inner">
+    <div class="content" data-src="content/portfolio.md"></div>
+    <div class="carousel-wrap">
+      <div class="carousel" id="carousel">
+        <div class="carousel-track" id="carouselTrack">
+          <div class="carousel-slide"><div class="placeholder"><p style="font-size:3rem;margin-bottom:1rem;">🔬</p><p>Drop your designs in <code>portfolio/images/</code></p><p style="font-size:0.85rem;margin-top:0.5rem;">Images will appear here automatically</p></div></div>
+        </div>
+        <button class="carousel-btn prev" onclick="moveSlide(-1)">‹</button>
+        <button class="carousel-btn next" onclick="moveSlide(1)">›</button>
+      </div>
+      <div class="carousel-dots" id="carouselDots"></div>
+    </div>
+  </div>
+</section>
+
+<section id="publications" class="dark"><div class="sec-inner content" data-src="content/publications.md"></div></section>
+
+<section id="contact">
+  <div class="sec-inner">
+    <div class="content" data-src="content/contact.md"></div>
+    <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <input type="text" name="name" placeholder="Your name" required>
+      <input type="email" name="email" placeholder="Your email" required>
+      <input type="text" name="subject" placeholder="Subject">
+      <textarea name="message" placeholder="Your message..." required></textarea>
+      <input type="hidden" name="_subject" value="New message from portfolio site">
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>Michela Sanguedolce &bull; <span>UMD Clark School of Engineering</span> &bull; College Park, MD</p>
+  <p style="margin-top:0.3rem;">Engineering at the biointerface</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+function selectNav(el){
+  document.querySelectorAll('.nav-link').forEach(l=>l.classList.remove('active'));
+  el.classList.add('active');
+}
+document.querySelectorAll('.content[data-src]').forEach(section=>{
+  fetch(section.dataset.src)
+    .then(r=>r.text())
+    .then(md=>section.innerHTML = marked.parse(md))
+    .catch(()=>section.innerHTML='<p class="card">Loading...</p>');
+});
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'});
+  });
+});
+
+let currentSlide = 0, slides = [];
+function loadPortfolio(){
+  const track = document.getElementById('carouselTrack');
+  const dots = document.getElementById('carouselDots');
+  for(let i=1; i<=10; i++){
+    ['jpg','png','webp'].forEach(ext=>{
+      const url = 'portfolio/images/'+i+'.'+ext;
+      const img = new Image();
+      img.onload = function(){ if(!slides.includes(url)) slides.push(url); };
+      img.src = url;
+    });
+  }
+  setTimeout(()=>{
+    if(slides.length > 0){
+      track.innerHTML = slides.map((s,i)=>`<div class="carousel-slide"><img src="${s}" alt="Portfolio ${i+1}" loading="lazy"></div>`).join('');
+      dots.innerHTML = slides.map((_,i)=>`<button class="${i===0?'active':''}" onclick="goToSlide(${i})"></button>`).join('');
+    }
+  }, 600);
+}
+function updateCarousel(){
+  document.getElementById('carouselTrack').style.transform = `translateX(-${currentSlide*100}%)`;
+  document.querySelectorAll('#carouselDots button').forEach((b,i)=>b.classList.toggle('active',i===currentSlide));
+}
+function moveSlide(d){ currentSlide=(currentSlide+d+slides.length)%slides.length||0; updateCarousel(); }
+function goToSlide(n){ currentSlide=n; updateCarousel(); }
+setTimeout(loadPortfolio, 800);
+</script>
+</body>
+</html>
